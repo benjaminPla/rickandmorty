@@ -28,6 +28,4 @@ export default createStore({
       commit('setCharactersFilter', results);
     },
   },
-  // modules: {
-  // },
 });

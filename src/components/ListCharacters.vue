@@ -36,7 +36,6 @@ export default {
   align-items: center;
   display: flex;
   flex-direction: column;
-  justify-items: center;
   h2 {
     color: #fff;
     padding: 20px 0;
