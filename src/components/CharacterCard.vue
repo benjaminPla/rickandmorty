@@ -33,6 +33,7 @@ export default {
   height: 290px;
   overflow: hidden;
   width: 190px;
+  transition: 0.1s;
   img{
     height: 150px;
     object-fit: cover;
@@ -64,6 +65,12 @@ export default {
       content: "\fffd";
       padding-right: 5px;
     }
+  }
+}
+.card:hover {
+  transform: scale(1.1);
+  h3 {
+    color: orange;
   }
 }
   </style>

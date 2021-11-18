@@ -33,24 +33,25 @@ export default {
 
 <style scoped lang='scss'>
 .container {
-    background-color: #555;
-    border-radius: 10px;
-    display: inline-block;
-    margin-bottom: 15px;
-    padding: 10px 15px;
-    button {
-      background: none;
-      border: none;
-      color: #fff;
-      cursor: pointer;
-      margin: 0 10px;
-      outline: none;
-    }
-    button:hover {
-      color: orange;
-    }
+  background-color: #555;
+  border-radius: 10px;
+  display: inline-block;
+  margin-bottom: 15px;
+  padding: 10px 15px;
+  button {
+    background: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    margin: 0 10px;
+    outline: none;
+  }
+  button:hover {
+    color: orange;
+  }
 }
 input[type=search] {
+  width: 42.5%;
   padding: 10px 15px;
   border: none;
   outline: none;
