@@ -19,6 +19,10 @@ export default createStore({
       commit('setCharacters', response.results);
       commit('setCharactersFilter', response.results);
     },
+    filterByName({ commit, state }, name) {
+      const results = state.characters.filter((character) => character.name.includes(name));
+      commit('setCharactersFilter', results);
+    },
     filterByStatus({ commit, state }, status) {
       const results = state.characters.filter((character) => character.status.includes(status));
       commit('setCharactersFilter', results);

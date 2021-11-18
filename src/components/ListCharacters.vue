@@ -2,6 +2,7 @@
   <div class="flex">
     <h2>Characters</h2>
     <characters-filter />
+    <p>Results: {{ characters.length }}</p>
     <ul class="characters">
       <li v-for="character in characters" :key="character.id">
         <character-card :character="character" />
@@ -39,6 +40,13 @@ export default {
   h2 {
     color: #fff;
     padding: 20px 0;
+  }
+  p {
+    color: #fff;
+    font-size: 0.5rem;
+    font-weight: 100;
+    text-align: left;
+    width: 100%;
   }
   .characters {
     display: grid;
