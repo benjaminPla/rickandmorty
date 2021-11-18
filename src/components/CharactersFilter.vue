@@ -1,15 +1,22 @@
 <template>
   <div class="container">
-      <button>All</button>
-      <button>Alive</button>
-      <button>Dead</button>
-      <button>Unknown</button>
+      <button @click.prevent='filter("")'>All</button>
+      <button @click.prevent='filter("Alive")'>Alive</button>
+      <button @click.prevent='filter("Dead")'>Dead</button>
+      <button @click.prevent='filter("unknown")'>Unknown</button>
   </div>
 </template>
 
 <script>
+import { useStore } from 'vuex';
+
 export default {
   name: 'CharactersFilter',
+  setup() {
+    const store = useStore();
+    const filter = (status) => store.dispatch('filterByStatus', status);
+    return { filter };
+  },
 };
 </script>
 

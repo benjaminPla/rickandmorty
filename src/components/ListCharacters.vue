@@ -1,10 +1,10 @@
 <template>
   <div class="flex">
     <h2>Characters</h2>
-    <characters-filter  class='filter'/>
+    <characters-filter />
     <ul class="characters">
       <li v-for="character in characters" :key="character.id">
-        <character-card :character='character' />
+        <character-card :character="character" />
       </li>
     </ul>
   </div>
@@ -21,13 +21,11 @@ export default {
   components: { CharacterCard, CharactersFilter },
   setup() {
     const store = useStore();
-    const characters = computed(() => store.state.characters);
+    const characters = computed(() => store.state.charactersFilter);
     onMounted(() => {
       store.dispatch('getCharacters');
     });
-    return {
-      characters,
-    };
+    return { characters };
   },
 };
 </script>
@@ -38,7 +36,7 @@ export default {
   display: flex;
   flex-direction: column;
   justify-items: center;
-  h2{
+  h2 {
     color: #fff;
     padding: 20px 0;
   }
