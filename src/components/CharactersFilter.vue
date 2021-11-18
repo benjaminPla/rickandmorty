@@ -16,16 +16,19 @@
 import { ref } from 'vue';
 import { useStore } from 'vuex';
 
+const capitalize = (string) => string.split(' ').map((word) => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+
 export default {
   name: 'CharactersFilter',
   setup() {
     const store = useStore();
     const name = ref('');
-    const filterName = () => store.dispatch('filterByName', name.value);
+    const filterName = () => store.dispatch('filterByName', capitalize(name.value));
     const filterStatus = (status) => store.dispatch('filterByStatus', status);
     return { name, filterName, filterStatus };
   },
 };
+
 </script>
 
 <style scoped lang='scss'>
