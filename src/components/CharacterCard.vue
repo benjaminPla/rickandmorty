@@ -45,6 +45,7 @@ export default {
     padding: 10px 25px;
     h3{
       color:#fff;
+      transition: 0.2s;
     }
     .alive,
     .dead,

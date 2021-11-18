@@ -28,13 +28,21 @@ export default {
     z-index: 100;
     img {
       width: 100px;
-      cursor: pointer;
       margin-left: 20px;
+      transition: 0.2s;
+    }
+    img:hover {
+      cursor: pointer;
+      transform: scale(1.2);
     }
     li {
       display: inline-block;
       padding: 0 20px;
+      transition: 0.2s;
+    }
+    li:hover {
       cursor: pointer;
+      color: orange;
     }
   }
 </style>

@@ -42,6 +42,7 @@ export default {
     background: none;
     border: none;
     color: #fff;
+    transition: 0.2s;
     cursor: pointer;
     margin: 0 10px;
     outline: none;
