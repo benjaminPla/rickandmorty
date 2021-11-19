@@ -5,6 +5,11 @@ import Episodes from '../views/Episodes.vue';
 
 const routes = [
   {
+    path: '/',
+    name: 'Home',
+    component: Characters,
+  },
+  {
     path: '/characters',
     name: 'Characters',
     component: Characters,
