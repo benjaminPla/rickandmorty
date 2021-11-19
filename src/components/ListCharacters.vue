@@ -35,18 +35,19 @@ export default {
   align-items: center;
   display: flex;
   flex-direction: column;
+  padding: 15px 10%;
   p {
     color: #fff;
     font-size: 0.5rem;
     font-weight: 100;
     text-align: left;
     width: 100%;
+    padding: 0 0 5px 15px;
   }
   .characters {
     display: grid;
     gap: 20px;
     grid-template-columns: repeat(3, 1fr);
-    padding: 15px 0;
   }
 }
 </style>

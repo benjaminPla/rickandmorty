@@ -2,8 +2,8 @@
 <div class="card">
     <h3>{{ episode.name }}</h3>
     <ul>
-      <li>Season: {{ episode.episode }}</li>
-      <li>Episode: {{ episode.episode }}</li>
+      <li>Season: {{ episode.episode.slice(1, 3) }}</li>
+      <li>Episode: {{ episode.episode.slice(4) }}</li>
       <li>Air Date: {{ episode.air_date }}</li>
     </ul>
   </div>
