@@ -30,12 +30,10 @@ export default {
   background-color: #555;
   border-radius: 20px;
   font-size: .7rem;
-  height: 290px;
   overflow: hidden;
-  width: 190px;
   transition: 0.1s;
   img{
-    height: 150px;
+    height: 200px;
     object-fit: cover;
     width: 100%;
   }
