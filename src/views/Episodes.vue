@@ -1,6 +1,7 @@
 <template>
   <div class='view'>
-    <h1>View under construction</h1>
+    <h1>Episodes</h1>
+    <p>View under costruction</p>
   </div>
 </template>
 

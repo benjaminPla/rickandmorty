@@ -12,6 +12,7 @@ export default createStore({
     episodesFilter: [],
   },
   mutations: {
+    /* eslint-disable */
     setCharacters: (state, payload) => state.characters = payload,
     setCharactersFilter: (state, payload) => state.charactersFilter = payload,
 
@@ -20,26 +21,27 @@ export default createStore({
 
     setEpisodes: (state, payload) => state.episodes = payload,
     setEpisodesFilter: (state, payload) => state.episodesFilter = payload,
+    /* eslint-disable */
   },
   actions: {
     async getCharacters({ commit }) {
       const characters = await fetch('https://rickandmortyapi.com/api/character')
-      .then((data) => data.json())
-      .catch((error) => error);
+        .then((data) => data.json())
+        .catch((error) => error);
       commit('setCharacters', characters.results);
       commit('setCharactersFilter', characters.results);
     },
     async getLocations({ commit }) {
       const locations = await fetch('https://rickandmortyapi.com/api/location')
-      .then((data) => data.json())
-      .catch((error) => error);
+        .then((data) => data.json())
+        .catch((error) => error);
       commit('setLocations', locations.results);
       commit('setLocationsFilter', locations.results);
     },
     async getEpisodes({ commit }) {
       const episodes = await fetch('https://rickandmortyapi.com/api/episode')
-      .then((data) => data.json())
-      .catch((error) => error);
+        .then((data) => data.json())
+        .catch((error) => error);
       commit('setEpisodes', episodes.results);
       commit('setEpisodesFilter', episodes.results);
     },
