@@ -1,6 +1,5 @@
 <template>
   <div class="flex">
-    <h2>Characters</h2>
     <characters-filter />
     <p>Results: {{ characters.length }}</p>
     <ul class="characters">
@@ -36,10 +35,6 @@ export default {
   align-items: center;
   display: flex;
   flex-direction: column;
-  h2 {
-    color: #fff;
-    padding: 20px 0;
-  }
   p {
     color: #fff;
     font-size: 0.5rem;

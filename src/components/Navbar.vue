@@ -1,18 +1,18 @@
 <template>
   <nav>
     <img src="../assets/logo.svg" alt='logo' />
-    <ul>
-      <li>Characters</li>
-      <li>XXX</li>
-      <li>XXX</li>
-    </ul>
+    <div>
+      <router-link to="/characters" class='route'>CHARACTERS</router-link>
+      <router-link to="/locations" class='route'>LOCATIONS</router-link>
+      <router-link to="/episodes" class='route'>EPISODES</router-link>
+    </div>
   </nav>
 </template>
 
 <script>
 export default {
   name: 'Navbar',
-}
+};
 </script>
 
 <style scoped lang='scss'>
@@ -27,7 +27,7 @@ export default {
     width: 100%;
     z-index: 100;
     img {
-      width: 100px;
+      width: 120px;
       margin-left: 20px;
       transition: 0.2s;
     }
@@ -35,14 +35,22 @@ export default {
       cursor: pointer;
       transform: scale(1.2);
     }
-    li {
+    .route {
       display: inline-block;
       padding: 0 20px;
       transition: 0.2s;
     }
-    li:hover {
+    .route:hover {
       cursor: pointer;
       color: orange;
+      transform: scale(1.1);
+    }
+    a,
+    a:hover,
+    a:focus,
+    a:active {
+      text-decoration: none;
+      color: inherit;
     }
   }
 </style>

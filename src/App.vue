@@ -1,17 +1,14 @@
 <template>
-  <navbar/>
-  <div class='app'>
-    <list-characters />
-  </div>
+  <navbar />
+  <router-view />
 </template>
 
 <script>
 import Navbar from '@/components/Navbar.vue';
-import ListCharacters from '@/components/ListCharacters.vue';
 
 export default {
   name: 'App',
-  components: { Navbar, ListCharacters },
+  components: { Navbar },
 };
 </script>
 
@@ -24,11 +21,5 @@ export default {
   list-style: none;
   margin: 0;
   padding: 0;
-}
-.app{
-  align-items: center;
-  background-color: #333;
-  display: flex;
-  justify-content: center;
 }
 </style>
