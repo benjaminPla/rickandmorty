@@ -1,24 +1,29 @@
-# rickandmorty
+# Rick and Morty | Client
 
-## Project setup
+## [Pla Benjamin](https://www.linkedin.com/in/benjamin-pla/)
+
+### Step by step
+
+1. Clone GitHub repository. _Run this command on your console_
+
 ```
-npm install
+git clone https://github.com/benjaminPla/rickandmorty.git
 ```
 
-### Compiles and hot-reloads for development
+2. Install all necessary packages. _Run this command on your console_
+
+```
+npm i || yarn
+```
+
+3. Serve.  _Run this command on your console_
+
 ```
 npm run serve
 ```
 
-### Compiles and minifies for production
-```
-npm run build
-```
+4. Open proyect in your browser.
 
-### Lints and fixes files
 ```
-npm run lint
+http://localhost:8080/
 ```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).

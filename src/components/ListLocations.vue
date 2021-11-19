@@ -1,10 +1,9 @@
 <template>
   <div class="flex">
-    <characters-filter />
-    <p>Results: {{ characters.length }}</p>
+    <p>Results: {{ locations.length }}</p>
     <ul class="characters">
-      <li v-for="character in characters" :key="character.id">
-        <character-card :character="character" />
+      <li v-for="location in locations" :key="location.id">
+        <location-card :location="location" />
       </li>
     </ul>
   </div>
@@ -13,19 +12,18 @@
 <script>
 import { onMounted, computed } from 'vue';
 import { useStore } from 'vuex';
-import CharacterCard from './CharacterCard.vue';
-import CharactersFilter from './CharactersFilter.vue';
+import LocationCard from './LocationCard.vue';
 
 export default {
-  name: 'ListCharacters',
-  components: { CharacterCard, CharactersFilter },
+  name: 'ListLocations',
+  components: { LocationCard },
   setup() {
     const store = useStore();
-    const characters = computed(() => store.state.charactersFilter);
+    const locations = computed(() => store.state.locationsFilter);
     onMounted(() => {
-      store.dispatch('getCharacters');
+      store.dispatch('getLocations');
     });
-    return { characters };
+    return { locations };
   },
 };
 </script>

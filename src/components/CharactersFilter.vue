@@ -57,5 +57,6 @@ input[type=search] {
   border: none;
   outline: none;
   border-radius: 10px;
+  margin-bottom: 10px;
 }
 </style>

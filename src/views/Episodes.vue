@@ -1,12 +1,16 @@
 <template>
   <div class='view'>
-    <h1>View under construction</h1>
+    <h1>Episodes</h1>
+    <list-episodes />
   </div>
 </template>
 
 <script>
+import ListEpisodes from '@/components/ListEpisodes.vue';
+
 export default {
   name: 'ViewEpisodes',
+  components: { ListEpisodes },
 };
 </script>
 

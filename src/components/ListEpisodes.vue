@@ -1,10 +1,9 @@
 <template>
   <div class="flex">
-    <characters-filter />
-    <p>Results: {{ characters.length }}</p>
-    <ul class="characters">
-      <li v-for="character in characters" :key="character.id">
-        <character-card :character="character" />
+    <p>Results: {{ episodes.length }}</p>
+    <ul class="episodes">
+      <li v-for="episode in episodes" :key="episode.id">
+        <episode-card :episode="episode" />
       </li>
     </ul>
   </div>
@@ -13,19 +12,18 @@
 <script>
 import { onMounted, computed } from 'vue';
 import { useStore } from 'vuex';
-import CharacterCard from './CharacterCard.vue';
-import CharactersFilter from './CharactersFilter.vue';
+import EpisodeCard from './EpisodeCard.vue';
 
 export default {
-  name: 'ListCharacters',
-  components: { CharacterCard, CharactersFilter },
+  name: 'ListEpisodes',
+  components: { EpisodeCard },
   setup() {
     const store = useStore();
-    const characters = computed(() => store.state.charactersFilter);
+    const episodes = computed(() => store.state.episodesFilter);
     onMounted(() => {
-      store.dispatch('getCharacters');
+      store.dispatch('getEpisodes');
     });
-    return { characters };
+    return { episodes };
   },
 };
 </script>
@@ -44,7 +42,7 @@ export default {
     width: 100%;
     padding: 0 0 5px 15px;
   }
-  .characters {
+  .episodes {
     display: grid;
     gap: 20px;
     grid-template-columns: repeat(3, 1fr);

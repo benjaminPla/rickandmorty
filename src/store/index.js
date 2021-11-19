@@ -4,20 +4,46 @@ export default createStore({
   state: {
     characters: [],
     charactersFilter: [],
+
+    locations: [],
+    locationsFilter: [],
+
+    episodes: [],
+    episodesFilter: [],
   },
   mutations: {
-    // eslint-disable-next-line no-return-assign
+    /* eslint-disable */
     setCharacters: (state, payload) => state.characters = payload,
-    // eslint-disable-next-line no-return-assign
     setCharactersFilter: (state, payload) => state.charactersFilter = payload,
+
+    setLocations: (state, payload) => state.locations = payload,
+    setLocationsFilter: (state, payload) => state.locationsFilter = payload,
+
+    setEpisodes: (state, payload) => state.episodes = payload,
+    setEpisodesFilter: (state, payload) => state.episodesFilter = payload,
+    /* eslint-disable */
   },
   actions: {
     async getCharacters({ commit }) {
-      const response = await fetch('https://rickandmortyapi.com/api/character')
+      const characters = await fetch('https://rickandmortyapi.com/api/character')
         .then((data) => data.json())
         .catch((error) => error);
-      commit('setCharacters', response.results);
-      commit('setCharactersFilter', response.results);
+      commit('setCharacters', characters.results);
+      commit('setCharactersFilter', characters.results);
+    },
+    async getLocations({ commit }) {
+      const locations = await fetch('https://rickandmortyapi.com/api/location')
+        .then((data) => data.json())
+        .catch((error) => error);
+      commit('setLocations', locations.results);
+      commit('setLocationsFilter', locations.results);
+    },
+    async getEpisodes({ commit }) {
+      const episodes = await fetch('https://rickandmortyapi.com/api/episode')
+        .then((data) => data.json())
+        .catch((error) => error);
+      commit('setEpisodes', episodes.results);
+      commit('setEpisodesFilter', episodes.results);
     },
     filterByName({ commit, state }, name) {
       const results = state.characters.filter((character) => character.name.includes(name));

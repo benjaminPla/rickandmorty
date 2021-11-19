@@ -1,6 +1,8 @@
 <template>
   <nav>
-    <img src="../assets/logo.svg" alt='logo' />
+    <router-link to="/">
+      <img src="../assets/logo.svg" alt='logo' />
+    </router-link>
     <div>
       <router-link to="/characters" class='route'>CHARACTERS</router-link>
       <router-link to="/locations" class='route'>LOCATIONS</router-link>

@@ -1,12 +1,16 @@
 <template>
   <div class='view'>
-    <h1>View under construction</h1>
+    <h1>Locations</h1>
+    <list-locations />
   </div>
 </template>
 
 <script>
+import ListLocations from '@/components/ListLocations.vue';
+
 export default {
   name: 'ViewLocations',
+  components: { ListLocations },
 };
 </script>
 
