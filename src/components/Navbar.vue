@@ -47,12 +47,5 @@ export default {
       color: orange;
       transform: scale(1.1);
     }
-    a,
-    a:hover,
-    a:focus,
-    a:active {
-      text-decoration: none;
-      color: inherit;
-    }
   }
 </style>

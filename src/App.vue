@@ -1,14 +1,16 @@
 <template>
-  <navbar />
+  <Navbar />
   <router-view />
+  <footerbar />
 </template>
 
 <script>
 import Navbar from '@/components/Navbar.vue';
+import Footerbar from '@/components/Footerbar.vue';
 
 export default {
   name: 'App',
-  components: { Navbar },
+  components: { Navbar, Footerbar },
 };
 </script>
 
@@ -21,5 +23,12 @@ export default {
   list-style: none;
   margin: 0;
   padding: 0;
+}
+a,
+a:hover,
+a:focus,
+a:active {
+  text-decoration: none;
+  color: inherit;
 }
 </style>
