@@ -32,8 +32,9 @@ export default {
   font-size: .7rem;
   overflow: hidden;
   transition: 0.1s;
+  width: 300px;
   img{
-    height: 200px;
+    height: 250px;
     object-fit: cover;
     width: 100%;
   }
