@@ -4,6 +4,7 @@ export default createStore({
   state: {
     characters: [],
     charactersFilter: [],
+    characterPage: 1,
 
     locations: [],
     locationsFilter: [],
@@ -15,6 +16,7 @@ export default createStore({
     /* eslint-disable */
     setCharacters: (state, payload) => state.characters = payload,
     setCharactersFilter: (state, payload) => state.charactersFilter = payload,
+    setCharacterPage: (state, payload) => state.characterPage += payload,
 
     setLocations: (state, payload) => state.locations = payload,
     setLocationsFilter: (state, payload) => state.locationsFilter = payload,
@@ -24,8 +26,9 @@ export default createStore({
     /* eslint-disable */
   },
   actions: {
-    async getCharacters({ commit }) {
-      const characters = await fetch('https://rickandmortyapi.com/api/character')
+    async getCharacters({ commit, state }, page) {
+      const endpoint = 'https://rickandmortyapi.com/api/character?page=';
+      const characters = await fetch(endpoint + state.characterPage)
         .then((data) => data.json())
         .catch((error) => error);
       commit('setCharacters', characters.results);
@@ -44,6 +47,11 @@ export default createStore({
         .catch((error) => error);
       commit('setEpisodes', episodes.results);
       commit('setEpisodesFilter', episodes.results);
+    },
+    setPage({ commit, state, dispatch}, type) {
+      if(type === 'previous' && state.characterPage === 1) return;
+      type === 'next' ? commit('setCharacterPage', 1) : commit('setCharacterPage', -1);
+      dispatch('getCharacters', state.characterPage);
     },
     filterByName({ commit, state }, name) {
       const results = state.characters.filter((character) => character.name.includes(name));

@@ -5,7 +5,7 @@
       <input type='email' placeholder='Email...' />
       <input type='text' placeholder='Subject...' />
       <textarea placeholder='Message...'></textarea>
-      <input type='submit' value='Send' />
+      <input type='submit' value='Send' @click.prevent />
     </form>
   </div>
 </template>
