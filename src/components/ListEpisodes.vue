@@ -1,5 +1,6 @@
 <template>
   <div class="flex">
+    <episodes-filter />
     <p>Results: {{ episodes.length }}</p>
     <ul class="episodes">
       <li v-for="episode in episodes" :key="episode.id">
@@ -13,16 +14,15 @@
 import { onMounted, computed } from 'vue';
 import { useStore } from 'vuex';
 import EpisodeCard from './EpisodeCard.vue';
+import EpisodesFilter from './EpisodesFilter.vue';
 
 export default {
   name: 'ListEpisodes',
-  components: { EpisodeCard },
+  components: { EpisodeCard, EpisodesFilter },
   setup() {
     const store = useStore();
     const episodes = computed(() => store.state.episodesFilter);
-    onMounted(() => {
-      store.dispatch('getEpisodes');
-    });
+    onMounted(() => store.dispatch('getEpisodes'));
     return { episodes };
   },
 };

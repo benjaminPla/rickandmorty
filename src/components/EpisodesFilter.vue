@@ -24,13 +24,13 @@ import { computed, ref } from 'vue';
 const capitalize = (string) => string.split(' ').map((word) => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
 
 export default {
-  name: 'LocationsFilter',
+  name: 'EpisodesFilter',
   setup() {
     const store = useStore();
     const name = ref('');
-    const page = computed(() => store.state.locationsPage);
-    const setPage = (type) => store.dispatch('setLocationsPage', type);
-    const filterName = () => store.dispatch('filterLocationsByName', capitalize(name.value));
+    const page = computed(() => store.state.episodesPage);
+    const setPage = (type) => store.dispatch('setEpisodesPage', type);
+    const filterName = () => store.dispatch('filterEpisodesByName', capitalize(name.value));
     // eslint-disable-next-line
     return { page, name, setPage, filterName };
   },

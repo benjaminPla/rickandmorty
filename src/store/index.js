@@ -12,6 +12,7 @@ export default createStore({
 
     episodes: [],
     episodesFilter: [],
+    episodesPage: 1,
   },
   mutations: {
     /* eslint-disable */
@@ -25,6 +26,7 @@ export default createStore({
 
     setEpisodes: (state, payload) => state.episodes = payload,
     setEpisodesFilter: (state, payload) => state.episodesFilter = payload,
+    setEpisodesPage: (state, payload) => state.episodesPage += payload,
     /* eslint-disable */
   },
   actions: {
@@ -44,8 +46,9 @@ export default createStore({
       commit('setLocations', locations.results);
       commit('setLocationsFilter', locations.results);
     },
-    async getEpisodes({ commit }) {
-      const episodes = await fetch('https://rickandmortyapi.com/api/episode')
+    async getEpisodes({ commit, state }) {
+      const endpoint = 'https://rickandmortyapi.com/api/episode?page=';
+      const episodes = await fetch(endpoint + state.episodesPage)
         .then((data) => data.json())
         .catch((error) => error);
       commit('setEpisodes', episodes.results);
@@ -60,7 +63,11 @@ export default createStore({
       if(type === 'previous' && state.locationsPage === 1) return;
       type === 'next' ? commit('setLocationsPage', 1) : commit('setLocationsPage', -1);
       dispatch('getLocations');
-
+    },
+    setEpisodesPage({ commit, state, dispatch }, type) {
+      if(type === 'previous' && state.episodesPage === 1) return;
+      type === 'next' ? commit('setEpisodesPage', 1) : commit('setEpisodesPage', -1);
+      dispatch('getEpisodes');
     },
     filterCharactersByName({ commit, state }, name) {
       const results = state.characters.filter((character) => character.name.includes(name));
@@ -73,6 +80,10 @@ export default createStore({
     filterLocationsByName({ commit, state }, name) {
       const results = state.locations.filter((location) => location.name.includes(name));
       commit('setLocationsFilter', results);
+    },
+    filterEpisodesByName({ commit, state }, name) {
+      const results = state.episodes.filter((episode) => episode.name.includes(name));
+      commit('setEpisodesFilter', results);
     },
   },
 });
