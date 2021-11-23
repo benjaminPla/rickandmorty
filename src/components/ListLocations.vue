@@ -1,5 +1,6 @@
 <template>
   <div class="flex">
+    <locations-filter />
     <p>Results: {{ locations.length }}</p>
     <ul class="characters">
       <li v-for="location in locations" :key="location.id">
@@ -13,10 +14,11 @@
 import { onMounted, computed } from 'vue';
 import { useStore } from 'vuex';
 import LocationCard from './LocationCard.vue';
+import LocationsFilter from './LocationsFilter.vue';
 
 export default {
   name: 'ListLocations',
-  components: { LocationCard },
+  components: { LocationCard, LocationsFilter },
   setup() {
     const store = useStore();
     const locations = computed(() => store.state.locationsFilter);

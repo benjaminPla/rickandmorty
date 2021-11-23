@@ -9,12 +9,6 @@
       <span>Page: {{ page }}</span>
       <i class="fas fa-angle-double-right" @click.prevent='setPage("next")'></i>
     </div>
-    <div class="containerOptions">
-      <button @click.prevent='filterStatus("")'>All</button>
-      <button @click.prevent='filterStatus("Alive")'>Alive</button>
-      <button @click.prevent='filterStatus("Dead")'>Dead</button>
-      <button @click.prevent='filterStatus("unknown")'>Unknown</button>
-    </div>
     <input
       type="search"
       placeholder="Search by name..."
@@ -30,12 +24,12 @@ import { computed, ref } from 'vue';
 const capitalize = (string) => string.split(' ').map((word) => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
 
 export default {
-  name: 'CharactersFilter',
+  name: 'LocationsFilter',
   setup() {
     const store = useStore();
     const name = ref('');
-    const page = computed(() => store.state.charactersPage);
-    const setPage = (type) => store.dispatch('setCharactersPage', type);
+    const page = computed(() => store.state.locationsPage);
+    const setPage = (type) => store.dispatch('setLocationsPage', type);
     const filterName = () => store.dispatch('filterByName', capitalize(name.value));
     const filterStatus = (status) => store.dispatch('filterByStatus', status);
     // eslint-disable-next-line

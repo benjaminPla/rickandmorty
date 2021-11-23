@@ -4,10 +4,11 @@ export default createStore({
   state: {
     characters: [],
     charactersFilter: [],
-    characterPage: 1,
+    charactersPage: 1,
 
     locations: [],
     locationsFilter: [],
+    locationsPage: 1,
 
     episodes: [],
     episodesFilter: [],
@@ -16,26 +17,28 @@ export default createStore({
     /* eslint-disable */
     setCharacters: (state, payload) => state.characters = payload,
     setCharactersFilter: (state, payload) => state.charactersFilter = payload,
-    setCharacterPage: (state, payload) => state.characterPage += payload,
+    setCharactersPage: (state, payload) => state.charactersPage += payload,
 
     setLocations: (state, payload) => state.locations = payload,
     setLocationsFilter: (state, payload) => state.locationsFilter = payload,
+    setLocationsPage: (state, payload) => state.locationsPage += payload,
 
     setEpisodes: (state, payload) => state.episodes = payload,
     setEpisodesFilter: (state, payload) => state.episodesFilter = payload,
     /* eslint-disable */
   },
   actions: {
-    async getCharacters({ commit, state }, page) {
+    async getCharacters({ commit, state }) {
       const endpoint = 'https://rickandmortyapi.com/api/character?page=';
-      const characters = await fetch(endpoint + state.characterPage)
+      const characters = await fetch(endpoint + state.charactersPage)
         .then((data) => data.json())
         .catch((error) => error);
       commit('setCharacters', characters.results);
       commit('setCharactersFilter', characters.results);
     },
-    async getLocations({ commit }) {
-      const locations = await fetch('https://rickandmortyapi.com/api/location')
+    async getLocations({ commit, state }) {
+      const endpoint = 'https://rickandmortyapi.com/api/location?page=';
+      const locations = await fetch(endpoint + state.locationsPage)
         .then((data) => data.json())
         .catch((error) => error);
       commit('setLocations', locations.results);
@@ -48,10 +51,16 @@ export default createStore({
       commit('setEpisodes', episodes.results);
       commit('setEpisodesFilter', episodes.results);
     },
-    setPage({ commit, state, dispatch}, type) {
-      if(type === 'previous' && state.characterPage === 1) return;
-      type === 'next' ? commit('setCharacterPage', 1) : commit('setCharacterPage', -1);
-      dispatch('getCharacters', state.characterPage);
+    setCharactersPage({ commit, state, dispatch}, type) {
+      if(type === 'previous' && state.charactersPage === 1) return;
+      type === 'next' ? commit('setCharactersPage', 1) : commit('setCharactersPage', -1);
+      dispatch('getCharacters');
+    },
+    setLocationsPage({ commit, state, dispatch }, type) {
+      if(type === 'previous' && state.locationsPage === 1) return;
+      type === 'next' ? commit('setLocationsPage', 1) : commit('setLocationsPage', -1);
+      dispatch('getLocations');
+
     },
     filterByName({ commit, state }, name) {
       const results = state.characters.filter((character) => character.name.includes(name));
