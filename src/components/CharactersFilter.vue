@@ -36,8 +36,8 @@ export default {
     const name = ref('');
     const page = computed(() => store.state.charactersPage);
     const setPage = (type) => store.dispatch('setCharactersPage', type);
-    const filterName = () => store.dispatch('filterByName', capitalize(name.value));
-    const filterStatus = (status) => store.dispatch('filterByStatus', status);
+    const filterName = () => store.dispatch('filterCharactersByName', capitalize(name.value));
+    const filterStatus = (status) => store.dispatch('filterCharactersByStatus', status);
     // eslint-disable-next-line
     return { page, name, setPage, filterName, filterStatus };
   },

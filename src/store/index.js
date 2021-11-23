@@ -62,13 +62,17 @@ export default createStore({
       dispatch('getLocations');
 
     },
-    filterByName({ commit, state }, name) {
+    filterCharactersByName({ commit, state }, name) {
       const results = state.characters.filter((character) => character.name.includes(name));
       commit('setCharactersFilter', results);
     },
-    filterByStatus({ commit, state }, status) {
+    filterCharactersByStatus({ commit, state }, status) {
       const results = state.characters.filter((character) => character.status.includes(status));
       commit('setCharactersFilter', results);
+    },
+    filterLocationsByName({ commit, state }, name) {
+      const results = state.locations.filter((location) => location.name.includes(name));
+      commit('setLocationsFilter', results);
     },
   },
 });
