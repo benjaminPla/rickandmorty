@@ -5,7 +5,7 @@
     </router-link>
     <div>
       <router-link to="/characters" class='route'>CHARACTERS</router-link>
-      <router-link to="/locations" class='route'>LOCATIONS</router-link>
+      <router-link to="/rickandmorty/locations" class='route'>LOCATIONS</router-link>
       <router-link to="/episodes" class='route'>EPISODES</router-link>
     </div>
   </nav>
