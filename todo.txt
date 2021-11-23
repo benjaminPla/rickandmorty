@@ -1,5 +1,0 @@
-add routes
-  https://next.router.vuejs.org/installation.html#npm
-  npm install vue-router@4
-restructure cards info
-  https://rickandmortyapi.com/
